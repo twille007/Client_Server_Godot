@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Matchmaking/Networking/Networking_sync.gd" type="Script" id=1]
+
+[node name="Networking" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Server_is_reachable_timer" type="Timer" parent="."]
+[connection signal="timeout" from="Server_is_reachable_timer" to="." method="_on_Server_is_reachable_timeout"]

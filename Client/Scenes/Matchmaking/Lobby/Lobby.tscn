@@ -1,0 +1,221 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Matchmaking/Lobby/Lobby.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="Lobby_controller" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lobby_background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lobby" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Games_list" type="Control" parent="Lobby"]
+anchor_left = 0.31283
+anchor_top = 0.147956
+anchor_right = 0.965434
+anchor_bottom = 0.834067
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Background" type="ColorRect" parent="Lobby/Games_list"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.196078, 0.254902, 0.352941, 0.843137 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Open_games" type="ScrollContainer" parent="Lobby/Games_list"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Lobby/Games_list/Open_games"]
+margin_right = 1253.0
+size_flags_horizontal = 3
+
+[node name="Lobby_buttons" type="Control" parent="Lobby"]
+anchor_left = 0.0234375
+anchor_top = 0.407407
+anchor_right = 0.283854
+anchor_bottom = 0.796296
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Background" type="ColorRect" parent="Lobby/Lobby_buttons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -3.05176e-05
+margin_bottom = -20.0
+color = Color( 0.196078, 0.254902, 0.352941, 0.843137 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Create_game_button" type="Button" parent="Lobby/Lobby_buttons"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 480.0
+margin_bottom = 80.0
+text = "Create Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Search_game_button" type="Button" parent="Lobby/Lobby_buttons"]
+margin_left = 20.0
+margin_top = 120.0
+margin_right = 480.0
+margin_bottom = 180.0
+disabled = true
+text = "Search Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Refresh_button" type="Button" parent="Lobby/Lobby_buttons"]
+margin_left = 20.0
+margin_top = 220.0
+margin_right = 480.0
+margin_bottom = 280.0
+text = "Refresh"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit_button" type="Button" parent="Lobby/Lobby_buttons"]
+margin_left = 20.0
+margin_top = 320.0
+margin_right = 480.0
+margin_bottom = 380.0
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Auto_refresh_timer" type="Timer" parent="Lobby"]
+
+[node name="Lobby_game_creation_panel" type="Control" parent="."]
+visible = false
+anchor_left = 0.183854
+anchor_top = 0.200463
+anchor_right = 0.816146
+anchor_bottom = 0.799537
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Background" type="ColorRect" parent="Lobby_game_creation_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.75809
+margin_bottom = 1.75806
+color = Color( 0.360784, 0.360784, 0.360784, 0.823529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Lobby_game_creation_panel"]
+anchor_left = 0.0881384
+anchor_top = 0.0772798
+anchor_right = 0.911862
+anchor_bottom = 0.200927
+margin_bottom = -40.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Game_name_label" type="Label" parent="Lobby_game_creation_panel/HBoxContainer"]
+margin_right = 78.0
+margin_bottom = 39.0
+size_flags_vertical = 3
+text = "Gamename:"
+valign = 1
+
+[node name="Game_name_line_edit" type="LineEdit" parent="Lobby_game_creation_panel/HBoxContainer"]
+margin_left = 82.0
+margin_right = 1000.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Lobby_game_creation_panel"]
+anchor_left = 0.0881384
+anchor_top = 0.278207
+anchor_right = 0.911862
+anchor_bottom = 0.401855
+margin_bottom = -40.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Max_player_label" type="Label" parent="Lobby_game_creation_panel/HBoxContainer2"]
+margin_right = 80.0
+margin_bottom = 40.0
+size_flags_vertical = 3
+text = "Max Players:"
+valign = 1
+
+[node name="Number_of_players_line_edit" type="LineEdit" parent="Lobby_game_creation_panel/HBoxContainer2"]
+margin_left = 84.0
+margin_right = 1000.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="Ok_button" type="Button" parent="Lobby_game_creation_panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -457.0
+margin_top = -247.0
+margin_right = -57.0
+margin_bottom = -147.0
+disabled = true
+text = "Ok"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel_button" type="Button" parent="Lobby_game_creation_panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 43.0001
+margin_top = -247.0
+margin_right = 443.0
+margin_bottom = -147.0
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="tree_entered" from="." to="." method="_on_Lobby_controller_tree_entered"]
+[connection signal="pressed" from="Lobby/Lobby_buttons/Create_game_button" to="." method="_on_Create_game_button_pressed"]
+[connection signal="pressed" from="Lobby/Lobby_buttons/Refresh_button" to="." method="_on_Refresh_button_pressed"]
+[connection signal="pressed" from="Lobby/Lobby_buttons/Exit_button" to="." method="_on_Exit_button_pressed"]
+[connection signal="text_changed" from="Lobby_game_creation_panel/HBoxContainer/Game_name_line_edit" to="." method="_on_Game_name_line_edit_text_changed"]
+[connection signal="text_changed" from="Lobby_game_creation_panel/HBoxContainer2/Number_of_players_line_edit" to="." method="_on_Number_of_players_line_edit_text_changed"]
+[connection signal="pressed" from="Lobby_game_creation_panel/Ok_button" to="." method="_on_Ok_button_pressed"]
+[connection signal="pressed" from="Lobby_game_creation_panel/Cancel_button" to="." method="_on_Cancel_button_pressed"]

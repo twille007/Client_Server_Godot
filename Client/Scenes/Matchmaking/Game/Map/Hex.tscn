@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Material/hex.dae" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Matchmaking/Game/Map/Hex.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0, 0.27451, 1, 1 )
+
+[sub_resource type="CylinderShape" id=2]
+radius = 0.986306
+
+[node name="Hex" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Cylinder" parent="." index="0"]
+material/0 = SubResource( 1 )
+
+[node name="Area" type="Area" parent="Cylinder" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Cylinder/Area" index="0"]
+shape = SubResource( 2 )
+[connection signal="input_event" from="Cylinder/Area" to="." method="_on_Area_input_event"]

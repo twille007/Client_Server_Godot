@@ -1,0 +1,139 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Matchmaking/Game/Camera_controller/Camera_controller.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Matchmaking/Game/Game_manager.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Matchmaking/Game/Mouse_controller/Mouse_controller.gd" type="Script" id=4]
+
+[node name="Game_manager" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="GUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Debug_label" type="Label" parent="GUI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -371.5
+margin_top = -52.5
+margin_right = 371.5
+margin_bottom = 52.5
+text = "DEBUG_INFO"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top_panel" type="Control" parent="GUI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -960.0
+margin_right = 960.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top_panel_container" type="HBoxContainer" parent="GUI/Top_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player_label" type="Label" parent="GUI/Top_panel/Top_panel_container"]
+margin_right = 958.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Turn of:"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Player_indicator" type="Label" parent="GUI/Top_panel/Top_panel_container"]
+margin_left = 962.0
+margin_right = 1920.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Player 1"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Bottom_left_panel" type="Control" parent="GUI"]
+anchor_top = 0.924074
+anchor_right = 0.233333
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/Bottom_left_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next_turn_button" type="Button" parent="GUI/Bottom_left_panel/VBoxContainer"]
+margin_right = 447.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+text = "Next turn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI/Bottom_left_panel/VBoxContainer"]
+margin_top = 43.0
+margin_right = 447.0
+margin_bottom = 82.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Turn_label" type="Label" parent="GUI/Bottom_left_panel/VBoxContainer/HBoxContainer"]
+margin_right = 221.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Turn:"
+align = 2
+valign = 1
+
+[node name="Turn_indicator" type="Label" parent="GUI/Bottom_left_panel/VBoxContainer/HBoxContainer"]
+margin_left = 225.0
+margin_right = 447.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+valign = 1
+
+[node name="Camera_base" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="Camera_base"]
+transform = Transform( 1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 12, 12, 12 )
+
+[node name="Mouse_controller" type="Spatial" parent="."]
+script = ExtResource( 4 )
+[connection signal="pressed" from="GUI/Bottom_left_panel/VBoxContainer/Next_turn_button" to="." method="_on_Next_turn_button_pressed"]

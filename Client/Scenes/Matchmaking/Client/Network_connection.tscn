@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Matchmaking/Client/Network_connection.gd" type="Script" id=2]
+
+[node name="Network_connection" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Background_image" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start_button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -188.5
+margin_top = -70.0
+margin_right = 188.5
+margin_bottom = 70.0
+disabled = true
+text = "Connecting..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Disconnect_button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -188.5
+margin_top = 103.958
+margin_right = 188.5
+margin_bottom = 243.958
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Try_to_connect_to_server_timer" type="Timer" parent="."]
+wait_time = 2.0
+[connection signal="pressed" from="Start_button" to="." method="_on_Start_button_pressed"]
+[connection signal="pressed" from="Disconnect_button" to="." method="_on_Disconnect_button_pressed"]
+[connection signal="timeout" from="Try_to_connect_to_server_timer" to="." method="_on_Try_to_connect_to_server_timer_timeout"]
